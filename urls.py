@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
@@ -93,3 +94,11 @@ urlpatterns += patterns('',
 # pages can use JS, CSS and images.
 handler404 = "mezzanine.core.views.page_not_found"
 handler500 = "mezzanine.core.views.server_error"
+
+if settings.DEBUG:  # pragma: no cover
+    import debug_toolbar
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    urlpatterns += patterns('',
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    )
+    urlpatterns += staticfiles_urlpatterns()

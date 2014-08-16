@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
 ######################
@@ -103,19 +104,19 @@ ALLOWED_HOSTS = []
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = None
+TIME_ZONE = 'America/Sao_Paulo'
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "pt-BR"
 
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
-    ('en', _('English')),
+    ('pt-BR', _('Portuguese')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -130,7 +131,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -165,7 +166,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         # DB name or path to database file if using sqlite3.
         "NAME": "",
         # Not used with sqlite3.
@@ -185,9 +186,13 @@ DATABASES = {
 #########
 
 import os
+import sys
 
 # Full filesystem path to the project.
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PARENT_DIR = os.path.abspath(os.path.join(PROJECT_ROOT))
+if not PARENT_DIR in [os.path.abspath(path) for path in sys.path]:
+    sys.path.insert(0, PARENT_DIR)
 
 # Name of the directory for the project.
 PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
@@ -230,6 +235,8 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 # APPLICATIONS #
 ################
 
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
 INSTALLED_APPS = (
     "django.contrib.admin",
     "django.contrib.auth",
@@ -239,6 +246,7 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "django.contrib.staticfiles",
+    "debug_toolbar",
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",
@@ -247,9 +255,12 @@ INSTALLED_APPS = (
     "mezzanine.forms",
     "mezzanine.pages",
     "mezzanine.galleries",
-    "mezzanine.twitter",
+    #"mezzanine.twitter",
+    "django_nose",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+
+    'giva.base',
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -272,6 +283,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # these middleware classes will be applied in the order given, and in the
 # response phase the middleware will be applied in reverse order.
 MIDDLEWARE_CLASSES = (
+    'giva.base.middleware.XForwardedForMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -302,7 +315,6 @@ PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
 
 # These will be added to ``INSTALLED_APPS``, only if available.
 OPTIONAL_APPS = (
-    "debug_toolbar",
     "django_extensions",
     "compressor",
     PACKAGE_NAME_FILEBROWSER,
@@ -331,6 +343,17 @@ OPTIONAL_APPS = (
 #     "SECRET_KEY": SECRET_KEY,
 #     "NEVERCACHE_KEY": NEVERCACHE_KEY,
 # }
+
+
+#################
+# TEST SETTINGS #
+#################
+
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--config=nose.cfg',
+]
 
 
 ##################
@@ -362,3 +385,5 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+TEMPLATE_DEBUG = True
