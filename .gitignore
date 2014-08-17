@@ -56,4 +56,5 @@ docs/_build/
 *.db
 .DS_Store
 local_settings.py
+test_settings.py
 /static

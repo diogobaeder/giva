@@ -356,6 +356,15 @@ NOSE_ARGS = [
 ]
 
 
+def mommy_gen_func():
+    m = hashlib.md5()
+    m.update(str(time.time()).encode('ascii'))
+    return '{}-{}'.format(uuid4(), m.hexdigest())
+MOMMY_CUSTOM_FIELDS_GEN = {
+    'mezzanine.core.fields.RichTextField': mommy_gen_func,
+}
+
+
 ##################
 # LOCAL SETTINGS #
 ##################
