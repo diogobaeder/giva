@@ -18,6 +18,7 @@
 {% compress css %}
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+<link rel="stylesheet" href="{% static "css/giva.css" %}">
 {% block extra_css %}{% endblock %}
 {% endcompress %}
 
@@ -29,7 +30,7 @@
 {% block extra_head %}{% endblock %}
 </head>
 
-<body id="{% block body_id %}body{% endblock %}">
+<body id="{% block body_id %}body{% endblock %}" class="giva {% block body_classes %}{% endblock %}">
 
 <div class="navbar-fixed-top">
 <div class="container navbar navbar-default" role="navigation">
@@ -64,9 +65,9 @@
 {% endif %}
 {% endnevercache %}
 
-<h1>{% block title %}{% endblock %}</h1>
+<h1 class="{% block h1_classes %}{% endblock %}">{% block title %}{% endblock %}</h1>
 
-<ul class="breadcrumb">
+<ul class="breadcrumb {% block breadcrumb_classes %}{% endblock %}">
 {% spaceless %}
 {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
 {% endspaceless %}
@@ -74,30 +75,17 @@
 
 </div>
 
+{% block before_main_container %}{% endblock %}
 <div class="container">
 <div class="row">
 
-<div class="col-md-9 middle">
+<div class="col-md-12 middle">
     {% block main %}{% endblock %}
 </div>
 
-<div class="col-md-3 right">
-    {% nevercache %}
-    {% include "includes/user_panel.html" %}
-    {% endnevercache %}
-    <div class="panel panel-default">
-    <div class="panel-body">
-    {% block right_panel %}
-    {% ifinstalled mezzanine.twitter %}
-    {% include "twitter/tweets.html" %}
-    {% endifinstalled %}
-    {% endblock %}
-    </div>
-    </div>
-</div>
-
 </div>
 </div>
+{% block after_main_container %}{% endblock %}
 
 <footer>
 <div class="container">

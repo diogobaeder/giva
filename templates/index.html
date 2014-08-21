@@ -4,25 +4,43 @@
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
 
+{% block body_classes %}home{% endblock %}
+
 {% block breadcrumb_menu %}
 <li class="active">{% trans "Home" %}</li>
 {% endblock %}
 
+{% block before_main_container %}
+<div class="carousel no-transition visible-md visible-lg">
+</div>
+{% endblock %}
+
+{% block h1_classes %}hidden{% endblock %}
+{% block breadcrumb_classes %}hidden{% endblock %}
+
 {% block main %}
-{% blocktrans %}
-<h2>Congratulations!</h2>
-<p>
-    Welcome to your new Mezzanine powered website.
-    Here are some quick links to get you started:
-</p>
-<ul>
-    <li><a href="/admin/">Log in to the admin interface</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/content-architecture.html">Creating custom page types</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#templates">Modifying HTML templates</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html#why-isn-t-the-homepage-a-page-object-i-can-edit-via-the-admin">Changing this homepage</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/frequently-asked-questions.html">Other frequently asked questions</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/configuration.html#default-settings">Full list of settings</a></li>
-    <li><a href="http://mezzanine.jupo.org/docs/deployment.html">Deploying to a production server</a></li>
-</ul>
-{% endblocktrans %}
+<h2>Conheça nosso programa:</h2>
+<section class="row programme">
+    <a class="btn btn-default" href="#">Direitos das Mulheres</a>
+    <a class="btn btn-default" href="#">Direitos LGBT</a>
+    <a class="btn btn-default" href="#">Auditoria Cidadã da Dívida</a>
+    <a class="btn btn-default" href="#">Indígenas Urbanxs</a>
+    <a class="btn btn-default" href="#">Direitos das Mulheres</a>
+    <a class="btn btn-default" href="#">Direitos LGBT</a>
+    <a class="btn btn-default" href="#">Auditoria Cidadã da Dívida</a>
+    <a class="btn btn-default" href="#">Indígenas Urbanxs</a>
+    <a class="btn btn-default" href="#">Direitos das Mulheres</a>
+    <a class="btn btn-default" href="#">Direitos LGBT</a>
+    <a class="btn btn-default" href="#">Auditoria Cidadã da Dívida</a>
+    <a class="btn btn-default" href="#">Indígenas Urbanxs</a>
+</section>
+{% endblock %}
+
+{% block after_main_container %}
+<div class="contribute no-transition">
+    <div class="container">
+        <span class="visible-md visible-lg">Uma voz de luta!</span>
+        <a title="Veja como contribuir" href="/contribua/" class="no-transition">Veja como contribuir</a>
+    </div>
+</div>
 {% endblock %}
