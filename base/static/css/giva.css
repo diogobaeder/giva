@@ -64,6 +64,8 @@ body.giva .no-transition {
 }
 
 .home .programme .btn {
-    margin: 0 10px 10px 0;
+    margin-bottom: 10px;
     text-align: left;
+    font-size: 24px;
+    text-transform: none;
 }
