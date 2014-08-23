@@ -271,7 +271,7 @@ def pip(packages):
     Installs one or more Python packages within the virtual environment.
     """
     with virtualenv():
-        return sudo("pip install %s" % packages)
+        return sudo("pip3 install %s" % packages)
 
 
 def postgres(command):
@@ -355,10 +355,10 @@ def install():
             sudo("update-locale %s" % locale)
             run("exit")
     sudo("apt-get update -y -q")
-    apt("nginx libjpeg-dev python-dev python-setuptools git-core "
+    apt("nginx libjpeg-dev python3-dev python3-setuptools git-core "
         "postgresql libpq-dev memcached supervisor")
-    sudo("easy_install pip")
-    sudo("pip install virtualenv mercurial")
+    sudo("easy_install3 pip")
+    sudo("pip3 install virtualenv")
 
 
 @task
@@ -381,7 +381,7 @@ def create():
                 print("\nAborting!")
                 return False
             remove()
-        run("virtualenv %s --distribute" % env.proj_name)
+        run("virtualenv %s --distribute -p /usr/bin/python3" % env.proj_name)
         vcs = "git" if env.git else "hg"
         run("%s clone %s %s" % (vcs, env.repo_url, env.proj_path))
 
@@ -422,7 +422,7 @@ def create():
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))
         pip("gunicorn setproctitle south psycopg2 "
-            "django-compressor python-memcached")
+            "django-compressor python3-memcached")
         manage("createdb --noinput --nodata")
         python("from django.conf import settings;"
                "from django.contrib.sites.models import Site;"
