@@ -70,3 +70,15 @@ body.giva .no-transition {
     font-size: 24px;
     text-transform: none;
 }
+
+footer {
+    background: #ececed;
+    border-top: 10px solid #f3f3f4;
+    padding-top: 0;
+}
+footer > hr {
+    height: 1px;
+    background: #dcdcdd;
+    margin: 0 0 20px;
+    border: none;
+}
