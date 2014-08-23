@@ -60,7 +60,8 @@ body.giva .no-transition {
 }
 
 .home .programme {
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .home .programme .btn {
