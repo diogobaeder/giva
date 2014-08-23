@@ -95,7 +95,11 @@ MANAGERS = ADMINS
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '54.94.173.48',
+    'giva.eco.br',
+    '*',
+]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -343,6 +347,9 @@ OPTIONAL_APPS = (
 #     "ADMIN_PASS": "", # Live admin user password
 #     "SECRET_KEY": SECRET_KEY,
 #     "NEVERCACHE_KEY": NEVERCACHE_KEY,
+#     "AWS_REGION": "sa-east-1",
+#     "AWS_AVAIL_ZONE": "sa-east-1a",
+#     "AWS_HOSTED_ZONE": "giva.eco.br.",
 # }
 
 

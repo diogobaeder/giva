@@ -59,3 +59,4 @@ local_settings.py
 test_settings.py
 /static
 *.pid
+.boto

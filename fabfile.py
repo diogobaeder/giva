@@ -10,6 +10,8 @@ from glob import glob
 from contextlib import contextmanager
 from posixpath import join
 
+import boto.ec2
+import boto.route53
 from fabric.api import env, cd, prefix, sudo as _sudo, run as _run, hide, task
 from fabric.contrib.files import exists, upload_template
 from fabric.colors import yellow, green, blue, red
@@ -57,6 +59,10 @@ env.locale = conf.get("LOCALE", "en_US.UTF-8")
 
 env.secret_key = conf.get("SECRET_KEY", "")
 env.nevercache_key = conf.get("NEVERCACHE_KEY", "")
+
+env.aws_region = conf.get("AWS_REGION")
+env.aws_avail_zone = conf.get("AWS_AVAIL_ZONE")
+env.aws_hosted_zone = conf.get("AWS_HOSTED_ZONE")
 
 
 ##################
@@ -529,6 +535,70 @@ def rollback():
             run("tar -xf %s" % join(env.proj_path, "last.tar"))
         restore("last.db")
     restart()
+
+
+@task
+@log_call
+def create_zone():
+    conn = boto.route53.connect_to_region(env.aws_region)
+    zones = conn.get_zones()
+    if zones:
+        zone = zones[0]
+    else:
+        zone = conn.create_zone(env.aws_hosted_zone)
+    return zone
+
+
+@task
+@log_call
+def create_security_groups(conn=None):
+    if conn is None:
+        conn = boto.ec2.connect_to_region(env.aws_region)
+    groups = conn.get_all_security_groups()
+
+    if len(groups) == 1:
+        web = conn.create_security_group('nginx', 'nginx')
+        web.authorize('tcp', 80, 80, '0.0.0.0/0')
+        web.authorize('tcp', 443, 443, '0.0.0.0/0')
+
+        ssh = conn.create_security_group('ssh', 'ssh')
+        ssh.authorize('tcp', 22, 22, '0.0.0.0/0')
+
+        smtp = conn.create_security_group('smtp', 'smtp')
+        smtp.authorize('tcp', 587, 587, '0.0.0.0/0')
+
+        groups.extend([web, ssh, smtp])
+
+    return [group.name for group in groups if group.name != 'default']
+
+
+@task
+@log_call
+def create_volume(conn=None):
+    if conn is None:
+        conn = boto.ec2.connect_to_region(env.aws_region)
+    volumes = conn.get_all_volumes()
+    if not volumes:
+        volume = conn.create_volume(10, env.aws_avail_zone)
+    else:
+        volume = volumes[0]
+    return volume
+
+
+@task
+@log_call
+def create_server():
+    zone = create_zone()
+    conn = boto.ec2.connect_to_region(env.aws_region)
+    groups = create_security_groups(conn)
+    volume = create_volume(conn)
+    instances = conn.get_all_instances()
+    if not instances:
+        instance = conn.run_instances(
+            'ami-d5a30ac8', instance_type='t2.micro', security_groups=groups)
+    else:
+        instance = instances[0]
+    import ipdb; ipdb.set_trace()
 
 
 @task
