@@ -22,11 +22,29 @@ body.giva .no-transition {
     top: 10px;
 }
 
-.home .carousel {
+.home .carousel-wrapper {
     height: 443px;
     width: 100%;
     background: url(../img/bg-home-carrossel.png) repeat-x;
     margin-top: -80px;
+}
+
+.home .carousel-control.left {
+    background: url(../img/seta-esq.png) no-repeat left center;
+}
+.home .carousel-control.right {
+    background: url(../img/seta-dir.png) no-repeat right center;
+}
+
+.home .carousel img {
+    margin: 76px auto 0 auto;
+}
+
+.home .carousel-indicators li {
+    border-color: #666666;
+}
+.home .carousel-indicators .active {
+    background-color: #666666;
 }
 
 .home .contribute {
