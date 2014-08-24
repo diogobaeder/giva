@@ -27,6 +27,10 @@ body.giva .no-transition {
     top: 10px;
 }
 
+.breadcrumb li {
+    white-space: nowrap;
+}
+
 .home .carousel-wrapper {
     height: 443px;
     width: 100%;
