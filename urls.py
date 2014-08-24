@@ -25,6 +25,8 @@ urlpatterns += patterns('',
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
 
+    url("^$", "base.views.home", name="home"),
+
     # HOMEPAGE AS STATIC TEMPLATE
     # ---------------------------
     # This pattern simply loads the index.html template. It isn't
@@ -32,7 +34,7 @@ urlpatterns += patterns('',
     # one homepage pattern, so if you use a different one, comment this
     # one out.
 
-    url("^$", direct_to_template, {"template": "index.html"}, name="home"),
+    #url("^$", direct_to_template, {"template": "index.html"}, name="home"),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------

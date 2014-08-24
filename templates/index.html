@@ -32,7 +32,6 @@
         <div class="item">
           <img src="{% static "img/carrossel/banner-indio.jpg" %}" alt="">
         </div>
-        ...
       </div>
 
       <!-- Controls -->
@@ -47,42 +46,11 @@
 
 {% block main %}
 <section class="row programme">
+    {% for page in programme %}
     <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Direitos das Mulheres</a>
+        <a class="btn btn-default btn-block" href="{{ page.get_absolute_url }}" title="{{ page.title }}">{{ page.title }}</a>
     </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Direitos LGBT</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Auditoria Cidadã da Dívida</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Indígenas Urbanxs</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Direitos das Mulheres</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Direitos LGBT</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Auditoria Cidadã da Dívida</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Indígenas Urbanxs</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Direitos das Mulheres</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Direitos LGBT</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Auditoria Cidadã da Dívida</a>
-    </div>
-    <div class="col-sm-6 col-lg-4">
-        <a class="btn btn-default btn-block" href="#">Indígenas Urbanxs</a>
-    </div>
+    {% endfor %}
 </section>
 {% endblock %}
 
