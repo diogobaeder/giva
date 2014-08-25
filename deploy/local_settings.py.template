@@ -36,6 +36,7 @@ CACHES = {
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
+EMAIL_BACKEND = '%(email_backend)s'
 EMAIL_HOST = "%(email_host)s"
 EMAIL_PORT = %(email_port)d
 EMAIL_HOST_USER = "%(email_host_user)s"
@@ -46,3 +47,8 @@ DEFAULT_FROM_EMAIL = "%(default_from_email)s"
 RAVEN_CONFIG = {
     'dsn': "%(raven_config_dsn)s",
 }
+
+AWS_ACCESS_KEY_ID = '%(aws_access_key_id)s'
+AWS_SECRET_ACCESS_KEY = '%(aws_secret_access_key)s'
+AWS_SES_REGION_NAME = '%(aws_ses_region_name)s'
+AWS_SES_REGION_ENDPOINT = '%(aws_ses_region_endpoint)s'

@@ -64,6 +64,13 @@ env.aws_region = conf.get("AWS_REGION")
 env.aws_avail_zone = conf.get("AWS_AVAIL_ZONE")
 env.aws_hosted_zone = conf.get("AWS_HOSTED_ZONE")
 
+env.aws_access_key_id = conf.get("AWS_ACCESS_KEY_ID")
+env.aws_secret_access_key = conf.get("AWS_SECRET_ACCESS_KEY")
+env.aws_ses_region_name = conf.get("AWS_SES_REGION_NAME")
+env.aws_ses_region_endpoint = conf.get("AWS_SES_REGION_ENDPOINT")
+
+env.email_backend = conf.get(
+    "EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
 env.email_host = conf.get("EMAIL_HOST", "")
 env.email_port = conf.get("EMAIL_PORT", 25)
 env.email_host_user = conf.get("EMAIL_HOST_USER", "")

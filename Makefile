@@ -5,3 +5,6 @@ test:
 
 run:
 	python manage.py runserver
+
+freeze-requirements:
+	pip freeze | grep -v memcache > requirements.txt
