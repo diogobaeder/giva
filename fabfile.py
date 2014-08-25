@@ -64,6 +64,13 @@ env.aws_region = conf.get("AWS_REGION")
 env.aws_avail_zone = conf.get("AWS_AVAIL_ZONE")
 env.aws_hosted_zone = conf.get("AWS_HOSTED_ZONE")
 
+env.email_host = conf.get("EMAIL_HOST", "")
+env.email_port = conf.get("EMAIL_PORT", 25)
+env.email_host_user = conf.get("EMAIL_HOST_USER", "")
+env.email_host_password = conf.get("EMAIL_HOST_PASSWORD", "")
+env.email_use_tls = conf.get("EMAIL_USE_TLS", False)
+env.default_from_email = conf.get("DEFAULT_FROM_EMAIL", "")
+
 
 ##################
 # Template setup #
