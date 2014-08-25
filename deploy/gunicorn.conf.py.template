@@ -5,3 +5,5 @@ bind = "127.0.0.1:%(gunicorn_port)s"
 workers = multiprocessing.cpu_count() * 2 + 1
 loglevel = "error"
 proc_name = "%(proj_name)s"
+errorlog = "%(proj_path)s/logs/gunicorn_error.log"
+accesslog = "%(proj_path)s/logs/gunicorn_access.log"
