@@ -71,6 +71,8 @@ env.email_host_password = conf.get("EMAIL_HOST_PASSWORD", "")
 env.email_use_tls = conf.get("EMAIL_USE_TLS", False)
 env.default_from_email = conf.get("DEFAULT_FROM_EMAIL", "")
 
+env.raven_config_dsn = conf.get("RAVEN_CONFIG_DSN", "")
+
 
 ##################
 # Template setup #

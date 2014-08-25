@@ -42,3 +42,7 @@ EMAIL_HOST_USER = "%(email_host_user)s"
 EMAIL_HOST_PASSWORD = "%(email_host_password)s"
 EMAIL_USE_TLS = %(email_use_tls)s
 DEFAULT_FROM_EMAIL = "%(default_from_email)s"
+
+RAVEN_CONFIG = {
+    'dsn': "%(raven_config_dsn)s",
+}

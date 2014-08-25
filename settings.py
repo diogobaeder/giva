@@ -267,6 +267,8 @@ INSTALLED_APPS = (
     "django_nose",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+
+    'raven.contrib.django.raven_compat',
 )
 
 # List of processors used by RequestContext to populate the context.
