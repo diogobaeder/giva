@@ -57,6 +57,6 @@ docs/_build/
 .DS_Store
 local_settings.py
 test_settings.py
-static/
+/static
 *.pid
 .boto

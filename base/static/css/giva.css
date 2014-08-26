@@ -7,7 +7,7 @@ body {
   }
 }
 
-body.giva .no-transition, body.giva .carousel-inner > .item {
+body.giva .no-transition {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
