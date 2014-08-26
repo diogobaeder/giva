@@ -7,7 +7,7 @@ body {
   }
 }
 
-body.giva .no-transition {
+body.giva .no-transition, body.giva .carousel-inner > .item {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
@@ -34,7 +34,7 @@ body.giva .no-transition {
 .home .carousel-wrapper {
     height: 443px;
     width: 100%;
-    background: url(../img/bg-home-carrossel.png) repeat-x;
+    background: url(../img/filete2.1.jpg) repeat-x;
     margin-top: -80px;
 }
 
@@ -46,7 +46,8 @@ body.giva .no-transition {
 }
 
 .home .carousel img {
-    margin: 76px auto 0 auto;
+    margin: 0 auto 0 auto;
+    max-width: none;
 }
 
 .home .carousel-indicators li {
