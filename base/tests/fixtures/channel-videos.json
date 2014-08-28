@@ -1,0 +1,118 @@
+{
+ "kind": "youtube#searchListResponse",
+ "etag": "\"gMjDJfS6nsym0T-NKCXALC_u_rM/eXMBEXo1u3Bonf7cq784iHRkGZ4\"",
+ "pageInfo": {
+  "totalResults": 4,
+  "resultsPerPage": 20
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"gMjDJfS6nsym0T-NKCXALC_u_rM/BE8mCQgEU0CAPmT2nD5SPiQLOpw\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "J3rGpHlIabY"
+   },
+   "snippet": {
+    "publishedAt": "2014-08-25T18:18:55.000Z",
+    "channelId": "UC1kMRJo3g__mp2W8o2GenOw",
+    "title": "Plenária de lançamento da campanha Giva 5006 - Dep. Federal - PSOL",
+    "description": "Neste sábado, 23, aconteceu a plenária de lançamento da campanha Giva 5006. Com material pronto, panfletos, camisetas, stencil e apoio garantido de ...",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/J3rGpHlIabY/default.jpg"
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/J3rGpHlIabY/mqdefault.jpg"
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/J3rGpHlIabY/hqdefault.jpg"
+     }
+    },
+    "channelTitle": "",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"gMjDJfS6nsym0T-NKCXALC_u_rM/_A_7x8-BNW0tqzsyj_J2MGF7ShU\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "st0JEJz9MgQ"
+   },
+   "snippet": {
+    "publishedAt": "2014-07-31T00:50:43.000Z",
+    "channelId": "UC1kMRJo3g__mp2W8o2GenOw",
+    "title": "Nós que Amamos a Revolução: lutamos contra a dívida pública",
+    "description": "A humanidade só não sucumbiu porque se revoluciona, porque tem gente que ama a revolução. E tem gente que escolhe a revolução.\" Plinio de Arruda ...",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/st0JEJz9MgQ/default.jpg"
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/st0JEJz9MgQ/mqdefault.jpg"
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/st0JEJz9MgQ/hqdefault.jpg"
+     }
+    },
+    "channelTitle": "",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"gMjDJfS6nsym0T-NKCXALC_u_rM/HMLcgd5Yygzg6lbzajj2LBImja8\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "QXhlCUtOWIo"
+   },
+   "snippet": {
+    "publishedAt": "2014-07-24T04:04:39.000Z",
+    "channelId": "UC1kMRJo3g__mp2W8o2GenOw",
+    "title": "Nós que Amamos a Revolução: lutamos pelos Direitos LGBT",
+    "description": "\" A humanidade só não sucumbiu porque se revoluciona, porque tem gente que ama a revolução. E tem gente que escolhe a revolução\" Plinio de Arruda ...",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/QXhlCUtOWIo/default.jpg"
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/QXhlCUtOWIo/mqdefault.jpg"
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/QXhlCUtOWIo/hqdefault.jpg"
+     }
+    },
+    "channelTitle": "",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"gMjDJfS6nsym0T-NKCXALC_u_rM/vcHERfaZ0X26DauljwdBOaE_j_s\"",
+   "id": {
+    "kind": "youtube#channel",
+    "channelId": "UC1kMRJo3g__mp2W8o2GenOw"
+   },
+   "snippet": {
+    "publishedAt": "2014-07-23T20:57:38.000Z",
+    "channelId": "UC1kMRJo3g__mp2W8o2GenOw",
+    "title": "Campanha Giva",
+    "description": "",
+    "thumbnails": {
+     "default": {
+      "url": "https://lh3.googleusercontent.com/-WFChbIrBmTc/AAAAAAAAAAI/AAAAAAAAAAA/0JAwJM0aJJY/photo.jpg"
+     },
+     "medium": {
+      "url": "https://lh3.googleusercontent.com/-WFChbIrBmTc/AAAAAAAAAAI/AAAAAAAAAAA/0JAwJM0aJJY/photo.jpg"
+     },
+     "high": {
+      "url": "https://lh3.googleusercontent.com/-WFChbIrBmTc/AAAAAAAAAAI/AAAAAAAAAAA/0JAwJM0aJJY/photo.jpg"
+     }
+    },
+    "channelTitle": "",
+    "liveBroadcastContent": "none"
+   }
+  }
+ ]
+}
