@@ -33,25 +33,36 @@ class YouTubeClient():
         }
 
     def list_channel_videos(self):
-        response = requests.get(self.channel_search_base_url,
-                                params=self.channel_search_parameters)
-        content = response.content.decode('utf-8')
-        if response.status_code != 200:
-            raise ClientConfigurationError(content)
+        data = self.get_video_data()
         videos = []
+        self.insert_videos(data, videos)
+        return videos
 
-        data = json.loads(content)
+    def insert_videos(self, data, videos):
         for item in data['items']:
             if item['id']['kind'] != 'youtube#video':
                 continue
-            snippet = item['snippet']
-            published_at = datetime.datetime.strptime(
-                snippet['publishedAt'], self.SOURCE_DATE_FORMAT)
-            videos.append(Video(
-                url=self.VIDEO_URL_TEMPLATE.format(item['id']['videoId']),
-                thumbnail=snippet['thumbnails']['medium']['url'],
-                title=snippet['title'],
-                date=published_at.date(),
-            ))
+            self.insert_video(item, videos)
 
-        return videos
+    def insert_video(self, item, videos):
+        snippet = item['snippet']
+        published_at = datetime.datetime.strptime(
+            snippet['publishedAt'], self.SOURCE_DATE_FORMAT)
+        videos.append(Video(
+            url=self.VIDEO_URL_TEMPLATE.format(item['id']['videoId']),
+            thumbnail=snippet['thumbnails']['medium']['url'],
+            title=snippet['title'],
+            date=published_at.date(),
+        ))
+
+    def get_video_data(self):
+        response = requests.get(self.channel_search_base_url,
+                                params=self.channel_search_parameters)
+        content = response.content.decode('utf-8')
+        self.check_status_code(response, content)
+        data = json.loads(content)
+        return data
+
+    def check_status_code(self, response, content):
+        if response.status_code != 200:
+            raise ClientConfigurationError(content)
