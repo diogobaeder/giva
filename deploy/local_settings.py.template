@@ -52,3 +52,5 @@ AWS_ACCESS_KEY_ID = '%(aws_access_key_id)s'
 AWS_SECRET_ACCESS_KEY = '%(aws_secret_access_key)s'
 AWS_SES_REGION_NAME = '%(aws_ses_region_name)s'
 AWS_SES_REGION_ENDPOINT = '%(aws_ses_region_endpoint)s'
+
+YOUTUBE_API_KEY = '%(youtube_api_key)s'

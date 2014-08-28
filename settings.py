@@ -317,6 +317,7 @@ MIDDLEWARE_CLASSES = (
 PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
 PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
 
+
 #########################
 # OPTIONAL APPLICATIONS #
 #########################
@@ -328,6 +329,16 @@ OPTIONAL_APPS = (
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
+
+
+########
+# APIS #
+########
+
+YOUTUBE_BASE_URL = 'https://www.googleapis.com/youtube/v3'
+YOUTUBE_CHANNEL_ID = 'UC1kMRJo3g__mp2W8o2GenOw'
+YOUTUBE_API_KEY = ''
+
 
 ###################
 # DEPLOY SETTINGS #

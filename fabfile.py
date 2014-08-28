@@ -80,6 +80,8 @@ env.default_from_email = conf.get("DEFAULT_FROM_EMAIL", "")
 
 env.raven_config_dsn = conf.get("RAVEN_CONFIG_DSN", "")
 
+env.youtube_api_key = conf.get("YOUTUBE_API_KEY", "")
+
 
 ##################
 # Template setup #
