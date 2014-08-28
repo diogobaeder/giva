@@ -26,6 +26,7 @@ urlpatterns += patterns('',
     # few patterns you can use to set it up.
 
     url("^$", "base.views.home", name="home"),
+    url("^material/videos/$", "base.views.list_videos", name="list_videos"),
 
     # HOMEPAGE AS STATIC TEMPLATE
     # ---------------------------

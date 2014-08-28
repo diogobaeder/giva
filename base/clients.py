@@ -10,7 +10,7 @@ class ClientConfigurationError(Exception):
     """Raised when client is misconfigured."""
 
 
-Video = namedtuple('Video', 'url thumbnail title date')
+Video = namedtuple('Video', 'id url thumbnail title date')
 
 
 class YouTubeClient():
@@ -48,8 +48,10 @@ class YouTubeClient():
         snippet = item['snippet']
         published_at = datetime.datetime.strptime(
             snippet['publishedAt'], self.SOURCE_DATE_FORMAT)
+        video_id = item['id']['videoId']
         videos.append(Video(
-            url=self.VIDEO_URL_TEMPLATE.format(item['id']['videoId']),
+            id=video_id,
+            url=self.VIDEO_URL_TEMPLATE.format(video_id),
             thumbnail=snippet['thumbnails']['medium']['url'],
             title=snippet['title'],
             date=published_at.date(),
