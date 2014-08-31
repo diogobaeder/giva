@@ -1,0 +1,13 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+
+{% block main %}{{ block.super }}
+
+{% editable page.richtextpage.content %}
+{{ page.richtextpage.content|richtext_filters|safe }}
+{% endeditable %}
+
+<iframe src="https://www.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=tsuo9hcgum0o27ck4a1k5bddq0%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=Pacific%2FMidway" style=" border-width:0 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+{% endblock %}
