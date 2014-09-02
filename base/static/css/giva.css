@@ -123,3 +123,7 @@ footer > hr {
     margin: 0 0 20px;
     border: none;
 }
+
+.img_left {
+    margin: 0 10px 10px 0;
+}

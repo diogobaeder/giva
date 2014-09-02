@@ -1,0 +1,17 @@
+{% extends "pages/page.html" %}
+
+{% load mezzanine_tags %}
+
+{% block main %}{{ block.super }}
+
+{% editable page.richtextpage.content %}
+{{ page.richtextpage.content|richtext_filters|safe }}
+{% endeditable %}
+
+<h2>Prestação de contas</h2>
+<p>(Em construção.)</p>
+{% comment "Determinar o arquivo de planilha antes" %}
+<iframe src="https://docs.google.com/spreadsheets/d/1v-w29FfF-f295XcdZ0GaJ8kxCWXgZ9DOPVdbmX5hQGc/pubhtml?widget=true&amp;headers=false" style=" border-width:0 " width="960" height="600" frameborder="0" scrolling="no"></iframe>
+{% endcomment %}
+
+{% endblock %}
