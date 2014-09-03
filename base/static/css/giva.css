@@ -124,6 +124,11 @@ footer > hr {
     border: none;
 }
 
+.social-networks li {
+    list-style: none;
+    font-size: 20px;
+}
+
 .img_left {
     float: left;
     margin: 0 10px 10px 0;
