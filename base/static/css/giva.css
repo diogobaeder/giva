@@ -87,6 +87,19 @@ body.giva .no-transition {
     text-decoration: none;
 }
 
+.home .contribute-banner {
+    position: absolute;
+    top: 180px;
+    left: 200px;
+    color: white;
+    font-size: 30px;
+    line-height: 45px;
+    width: 380px;
+}
+.home .contribute-banner small {
+    font-size: 20px;
+}
+
 .home .programme {
     margin-top: 20px;
     margin-bottom: 20px;
