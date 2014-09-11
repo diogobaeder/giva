@@ -13,6 +13,10 @@ body.giva .no-transition {
     transition: none;
 }
 
+h2, .h2, h3, .h3 {
+    margin-top: 30px;
+}
+
 .navbar-brand {
     width: 180px;
     height: 62px;
@@ -146,6 +150,10 @@ footer > hr {
     background: #dcdcdd;
     margin: 0 0 20px;
     border: none;
+}
+
+.social-networks {
+    margin-top: 30px;
 }
 
 .social-networks li {
