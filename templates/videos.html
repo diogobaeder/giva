@@ -14,9 +14,10 @@ Galeria de vídeos da campanha.
 {% block main %}
 <div class="gallery row">
 {% for video in videos %}
-<div class="col-xs-4 col-sm-3">
+<div class="col-xs-4 col-sm-3 video-wrapper">
     <a class="thumbnail" rel="#video-{{ video.id }}" title="{{ video.title }}" href="{{ video.url }}">
         <img class="img-responsive" src="{{ video.thumbnail }}">
+        <h2>{{ video.title }}</h2>
     </a>
 </div>
 {% endfor %}
