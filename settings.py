@@ -338,7 +338,7 @@ OPTIONAL_APPS = (
 YOUTUBE_API_BASE_URL = 'https://www.googleapis.com/youtube/v3'
 YOUTUBE_CHANNEL_ID = 'UC1kMRJo3g__mp2W8o2GenOw'
 YOUTUBE_API_KEY = ''
-YOUTUBE_MAX_RESULTS = 20
+YOUTUBE_MAX_RESULTS = 100
 
 
 ###################
